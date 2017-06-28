@@ -1,0 +1,102 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>作者信息</title>
+    <link rel="stylesheet" href="/css/me.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div><div>
+    <!--header-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="margin: 0; border: 0">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a style="padding: 0 15px;" href="#"><img src="/image/logo3.png" style="margin-top: 6px"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html" >首页</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/KunWangRui/105-micro-service" >Github</a>
+                    </li>
+                    <li class="active">
+                        <a href="/">联系作者</a>
+                    </li>
+                </ul>
+                <div class="navbar-form navbar-right">
+
+                    <a class="btn btn-success" href="login.html">登录</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div></div>
+
+<div class="container">
+    <div class="col-lg-6 col-lg-offset-3">
+
+        <!-- ===== vCard Navigation ===== -->
+        <div class="row w">
+            <div class="col-md-4" style="padding-left: 0">
+                <img class="img-responsive" src="/image/logo.gif" alt="" style="width: ">
+                <ul class="nav nav-tabs nav-stacked" id="myTab">
+                    <li class="active"><a href="#about">作者简介</a></li>
+                    <li><a href="#contact">联系方式</a></li>
+                </ul>
+            </div><!-- col-md-4 -->
+
+            <!-- ===== vCard Content ===== -->
+            <div class="col-md-8">
+                <div class="tab-content">
+                    <!-- ===== First Tab ===== -->
+                    <div class="tab-pane active" id="about">
+                        <h3>王露 樊艳 徐国海 王坤</h3>
+                        <h5>数学馆西105实验室</h5>
+                        <hr>
+                        <p>实验室研究方向为机器学习、知识图谱</p>
+                    </div><!-- tab about -->
+
+
+                    <!-- ===== Second Tab ===== -->
+                    <div class="tab-pane" id="contact">
+                        <h4>联系方式</h4>
+                        <hr>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p style="margin-bottom: 0px;font-size: 14px">
+                                    邮箱 - xinguanwangkun@163.com<br>
+                                    Github - <a href="https://github.com/KunWangRui/105-micro-service">https://github.com/KunWangRui/105-micro-service</a>
+                                </p>
+                            </div><!-- col-xs-12 -->
+                        </div><!-- row -->
+                        <hr>
+                        <!-- row -->
+                    </div><!-- Tab Contact -->
+
+                </div><!-- Tab Content -->
+            </div><!-- col-md-8 -->
+        </div><!-- row w -->
+    </div><!-- col-lg-6 -->
+</div>
+<script>
+    $('#myTab a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+</script>
+</body>
+</html>

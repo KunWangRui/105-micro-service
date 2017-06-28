@@ -1,8 +1,8 @@
-/home/kun/Documents/idea-project/spring-cloud-demo/service1/src/main/java/cn/demo/service1/client/Service0Client.java
-/home/kun/Documents/idea-project/spring-cloud-demo/service1/src/main/java/cn/demo/AbstractController.java
-/home/kun/Documents/idea-project/spring-cloud-demo/service1/src/main/java/cn/demo/service1/client/fallback/factory/Service0FallbackFactory.java
-/home/kun/Documents/idea-project/spring-cloud-demo/service1/src/main/java/cn/demo/service1/controller/Service1Controller.java
-/home/kun/Documents/idea-project/spring-cloud-demo/service1/src/main/java/cn/demo/service1/service/BlogService.java
-/home/kun/Documents/idea-project/spring-cloud-demo/service1/src/main/java/cn/demo/service1/Service1Application.java
-/home/kun/Documents/idea-project/spring-cloud-demo/service1/src/main/java/cn/demo/service1/beans/Blog.java
-/home/kun/Documents/idea-project/spring-cloud-demo/service1/src/main/java/cn/demo/service1/service/BlogServiceImpl.java
+/home/kun/Documents/idea-project/idea/105-micro-service/service1/src/main/java/cn/demo/AbstractController.java
+/home/kun/Documents/idea-project/idea/105-micro-service/service1/src/main/java/cn/demo/service1/beans/Blog.java
+/home/kun/Documents/idea-project/idea/105-micro-service/service1/src/main/java/cn/demo/service1/Service1Application.java
+/home/kun/Documents/idea-project/idea/105-micro-service/service1/src/main/java/cn/demo/service1/client/fallback/factory/Service0FallbackFactory.java
+/home/kun/Documents/idea-project/idea/105-micro-service/service1/src/main/java/cn/demo/service1/service/BlogServiceImpl.java
+/home/kun/Documents/idea-project/idea/105-micro-service/service1/src/main/java/cn/demo/service1/service/BlogService.java
+/home/kun/Documents/idea-project/idea/105-micro-service/service1/src/main/java/cn/demo/service1/controller/Service1Controller.java
+/home/kun/Documents/idea-project/idea/105-micro-service/service1/src/main/java/cn/demo/service1/client/Service0Client.java

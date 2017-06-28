@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login | Any-Chat</title>
+    <title>Login | BLog</title>
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
@@ -58,32 +58,37 @@
 <!-- End Content -->
 <div th:fragment="nav">
     <!--header-->
-    <nav class="navbar navbar-inverse navbar-fixed-top" style="margin: 0; border: 0">
-        <div class="container">
-            <div class="navbar-header">
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="margin: 0; border: 0; height: 3%">
+        <div class="container" style="height: 3%">
+            <div class="navbar-header" style="height: 3%">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a style="padding: 0 15px;" href="#"><img src="/image/logo.svg" style="margin-top: 6px"></a>
+                <a style="padding: 0 15px;width: 130px;height: 60px" href="#">
+                    <img src="/image/logo3.png" style=" width: 80px; height: 50px"></a>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
+            <div id="navbar" class="navbar-collapse collapse" style="height: 3%">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="/" >首页</a>
+                        <a href="index.html">首页</a>
                     </li>
                     <li>
-                        <a href="http://www.ictgu.cn/author">作者</a>
+                        <a href="/bloglist.html" >博客列表</a>
                     </li>
                     <li>
-                        <a href="https://github.com/ChinaSilence/any-chat" target="_blank">Github</a>
+                        <a href="author.html">作者</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/KunWangRui/105-micro-service" target="_blank">Github</a>
                     </li>
                 </ul>
                 <div class="navbar-form navbar-right">
-                    <a class="btn btn-danger" th:href="@{/logout}" th:if="${#httpServletRequest.remoteUser}">退出</a>
-                    <a class="btn btn-success" th:href="@{/login}" th:unless="${#httpServletRequest.remoteUser}">登录</a>
+                    <a class="btn btn-danger" href="register.html" >注册</a>
+
+                    <a class="btn btn-success" href="login.html" >登录</a>
                 </div>
             </div>
         </div>
@@ -110,15 +115,53 @@
                 contentType:"application/json",
                 data:JSON.stringify(data),
                 success: function (data) {
-                    console.log(data);
-                    alert(data > 0 ? '登陆成功！' : '用户名或密码错误！');
-                    window.location.href="/bloglist.html";
+//                    console.log(data);
+                    if(data != 200)
+                        alert( '用户名密码错误码错误！');
+                    else
+                        window.location.href="/bloglist.html";
+
                 }
             });
+            return false;
         });
     });
 </script>
 
+<div th:fragment="nav">
+    <!--header-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="margin: 0; border: 0; height: 3%">
+        <div class="container" style="height: 3%">
+            <div class="navbar-header" style="height: 3%">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a style="padding: 0 15px;width: 130px;height: 60px" href="#">
+                    <img src="/image/logo3.png" style="margin-top: 6px; width: 80px; height: 50px"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse" style="height: 4%">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/bloglist.html" >博客列表</a>
+                    </li>
+                    <li>
+                        <a href="author.html">作者</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/KunWangRui/105-micro-service" target="_blank">Github</a>
+                    </li>
+                </ul>
+                <div class="navbar-form navbar-right">
+                    <a class="btn btn-danger" href="register.html" >注册</a>
 
+                    <a class="btn btn-success" href="login.html" >登录</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
 
 </html>

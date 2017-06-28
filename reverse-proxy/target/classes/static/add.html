@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -8,20 +8,35 @@
     <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
 </head>
 <body>
+
+<div th:insert="header :: nav" style="background-color: #222222; padding-bottom: 0; width: 90%"></div>
+
+
 <div style="margin-left: 10%;margin-top:15%;">
+
+
     <div class="row" >
-        <div class="col-lg-4">
-            <input type="text" id="title" placeholder="标题">
+        <label class="col-md-1 control-label">作者</label>
+        <div class="col-md-4">
+            <input type="text" name="author" id="author" class="form-control" placeholder="请输入作者">
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-4">
-            <input type="text" id="author" placeholder="作者">
+
+    </br>
+
+    <div class="row" >
+        <label class="col-md-1 control-label">标题</label>
+        <div class="col-md-4">
+            <input type="text" name="title" id="title" class="form-control" placeholder="请输入标题">
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-4">
-            <textarea placeholder="内容" id="content" cols="30" rows="10"></textarea>
+
+    </br>
+
+    <div class="row" >
+        <label class="col-md-1 control-label">内容</label>
+        <div class="col-md-4">
+            <textarea class="form-control" rows="15" name="content" id="content" placeholder="请输入内容"></textarea>
         </div>
     </div>
 </div>
@@ -30,6 +45,45 @@
 
 
 </body>
+<div th:fragment="nav">
+    <!--header-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="margin: 0; border: 0; height: 3%">
+        <div class="container" style="height: 3%">
+            <div class="navbar-header" style="height: 3%">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a style="padding: 0 15px;width: 130px;height: 60px" href="#">
+                    <img src="/image/logo3.png" style=" width: 80px; height: 50px"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse" style="height: 3%">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li>
+                        <a href="/bloglist.html" >博客列表</a>
+                    </li>
+                    <li>
+                        <a href="author.html">作者</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/KunWangRui/105-micro-service" target="_blank">Github</a>
+                    </li>
+                </ul>
+                <div class="navbar-form navbar-right">
+                    <a class="btn btn-danger" href="register.html" >注册</a>
+
+                    <a class="btn btn-success" href="login.html" >登录</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $('#addBtn').click(function () {

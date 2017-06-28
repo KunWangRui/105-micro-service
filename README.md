@@ -55,12 +55,18 @@ Spring cloud中包括了许多常用的工具，为Spring Boot应用提供了许
 
 #### 运行命令
 
-- cd spring-cloud-demo/ 并执行 mvn clean pacakge
+- cd 105-micro-service/ 并执行 mvn clean pacakge
 - cd ../docker/ 并执行 docker-compose build 和 docker-compose up
 
 #### 重要端口
 
 - http://localhost:8080 网关
+
+#### 如果Docker运行失败
+
+- 请按照如下顺序分别启用服务：registry、config-server、service1、service2、reverse-proxy。
+- 在MySQL中新建数据库test，执行根目录下database文件夹中的setup.sql文件，同时在service0和service1中的application.yml配置数据库的用户名和密码。
+- 访问页面http://192.168.1.107:8083/index.html。
 
 ## 运行界面
 
@@ -70,19 +76,19 @@ Spring cloud中包括了许多常用的工具，为Spring Boot应用提供了许
 
 
 
-这是Blog Life的主页面，点击右上角登录。
+页面index.html是Blog Life的主页面，点击右上角登录。
 
 ![index](imgs/index.png)
 
 
 
-输入数据库预置的用户名wk@git.com和密码123即可成功登录。
+在页面login.html中输入数据库预置的用户名wk@git.com和密码123即可成功登录。
 
 ![login](imgs/login.png)
 
 
 
-当然也可以注册新账户，可以看到若注册用户的邮箱已存在于数据库中，则系统提示该邮箱已被占用！
+当然也可以在register.html页面中注册新账户，可以看到若注册用户的邮箱已存在于数据库中，则系统提示该邮箱已被占用！
 
 ![register1](imgs/register1.png)
 
@@ -94,26 +100,26 @@ Spring cloud中包括了许多常用的工具，为Spring Boot应用提供了许
 
 
 
-登录成功后可看到当前数据库内置的一些短博客，点击标题为hi的博客，查看内容hi there。![bloglist](imgs/bloglist.png)
+登录成功后可跳转到页面bloglist.html，显示当前数据库内置的一些短博客，点击标题为java的博客，查看内容this is java。![bloglist](imgs/bloglist.png)
 
 
 
-接着点击上图中的修改，进入修改博客页面，新增一行add one line，成功提交。![update1](imgs/update1.png)
+接着点击上图中的修改，进入修改博客页面update.html，新增一行add one line，成功提交。![update1](imgs/update1.png)
 
 
 
-可以看到返回的博客列表页面中，标题为hi的博客内容已经改变。
+可以看到返回的博客列表页面中，标题为java的博客内容已经改变。
 
 ![update2](imgs/update2.png)
 
 
 
-下面演示新增博客的操作，点击上图中最底部添加按钮，进入新增页面。添加一条标题为add one，作者为yan，内容为this is test data的博客，成功提交。
+下面演示新增博客的操作，点击上图中最底部添加按钮，进入新增页面add.html。添加一条标题为add tag，作者为yan，内容为this is test data的博客，成功提交。
 
 ![add1](imgs/add1.png)
 
 
 
-返回博客列表页面，可以看到底部已经新增了一条标题为add one的博客记录。
+返回博客列表页面，可以看到底部已经新增了一条标题为add tag的博客记录。
 
 ![add2](imgs/add2.png)
