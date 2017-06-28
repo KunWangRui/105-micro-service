@@ -6,7 +6,7 @@ Blog Life是一个简单的博客记录网站，用于展示微服务架构的de
 
 Blog Life核心的业务分为两个服务，包括用户服务User Service和博客服务Blog Service。这两个服务采用Spring Boot独立开发，底层数据库也相互独立。其关系如下图所示：
 
-![function_service](/Users/yan/Desktop/doc/imgs/function_service.png)
+![function_service](imgs/function_service.png)
 
 #### User Service 用户服务
 
@@ -45,7 +45,7 @@ Spring cloud中包括了许多常用的工具，为Spring Boot应用提供了许
 - 配置中心
   - Config为服务端和客户端提供了分布式系统的外部化配置支持。配置服务器为各应用的所有环境提供了一个中心化的外部配置。它实现了对服务端和客户端对Spring Environment和PropertySource抽象的映射，所以它除了适用于Spring构建的应用程序，也可以在任何其他语言运行的应用程序中使用。可以用git和svn做配置文件的版本管理，可以本地存储。
 
-![structure_service](/Users/yan/Desktop/doc/imgs/structure_service.png)
+![structure_service](imgs/structure_service.png)
 
 ## 如何运行？
 
@@ -66,54 +66,54 @@ Spring cloud中包括了许多常用的工具，为Spring Boot应用提供了许
 
 首先可以看到Eureka发现了四个服务：CONFIG-CENTER配置中心，GATEWAY网关，SERVICE1博客服务和SERVICE2用户服务。
 
-![eureka](/Users/yan/Desktop/doc/imgs/eureka.png)
+![eureka](imgs/eureka.png)
 
 
 
 这是Blog Life的主页面，点击右上角登录。
 
-![index](/Users/yan/Desktop/doc/imgs/index.png)
+![index](imgs/index.png)
 
 
 
 输入数据库预置的用户名wk@git.com和密码123即可成功登录。
 
-![login](/Users/yan/Desktop/doc/imgs/login.png)
+![login](imgs/login.png)
 
 
 
 当然也可以注册新账户，可以看到若注册用户的邮箱已存在于数据库中，则系统提示该邮箱已被占用！
 
-![register1](/Users/yan/Desktop/doc/imgs/register1.png)
+![register1](imgs/register1.png)
 
 
 
 注册时后台验证确保改邮箱未被注册，则提示注册成功！
 
-![register2](/Users/yan/Desktop/doc/imgs/register2.png)
+![register2](imgs/register2.png)
 
 
 
-登录成功后可看到当前数据库内置的一些短博客，点击标题为hi的博客，查看内容hi there。![bloglist](/Users/yan/Desktop/doc/imgs/bloglist.png)
+登录成功后可看到当前数据库内置的一些短博客，点击标题为hi的博客，查看内容hi there。![bloglist](imgs/bloglist.png)
 
 
 
-接着点击上图中的修改，进入修改博客页面，新增一行add one line，成功提交。![update1](/Users/yan/Desktop/doc/imgs/update1.png)
+接着点击上图中的修改，进入修改博客页面，新增一行add one line，成功提交。![update1](imgs/update1.png)
 
 
 
 可以看到返回的博客列表页面中，标题为hi的博客内容已经改变。
 
-![update2](/Users/yan/Desktop/doc/imgs/update2.png)
+![update2](imgs/update2.png)
 
 
 
 下面演示新增博客的操作，点击上图中最底部添加按钮，进入新增页面。添加一条标题为add one，作者为yan，内容为this is test data的博客，成功提交。
 
-![add1](/Users/yan/Desktop/doc/imgs/add1.png)
+![add1](imgs/add1.png)
 
 
 
 返回博客列表页面，可以看到底部已经新增了一条标题为add one的博客记录。
 
-![add2](/Users/yan/Desktop/doc/imgs/add2.png)
+![add2](imgs/add2.png)
