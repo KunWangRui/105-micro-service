@@ -1,0 +1,9 @@
+cn/demo/service1/controller/Service1Controller.class
+cn/demo/AbstractController.class
+cn/demo/service1/client/fallback/factory/Service0FallbackFactory.class
+cn/demo/service1/client/Service0Client.class
+cn/demo/service1/service/BlogServiceImpl.class
+cn/demo/service1/beans/Blog.class
+cn/demo/service1/service/BlogService.class
+cn/demo/service1/client/fallback/factory/Service0FallbackFactory$1.class
+cn/demo/service1/Service1Application.class

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div style="margin-left: 10%;margin-top:15%;">
+    <div class="row" >
+        <div class="col-lg-4">
+            <input type="text" id="title" placeholder="标题">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <input type="text" id="author" placeholder="作者">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <textarea placeholder="内容" id="content" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+</div>
+
+<button id="addBtn" class="btn btn-info" style="margin-left: 30%">添加</button>
+
+
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#addBtn').click(function () {
+            var title = $('#title').val();
+            var content = $('#content').val();
+            var author = $('#author').val();
+
+            var data =  {
+                    "title": title,
+                    "content": content,
+                    "author": author
+                };
+
+            $.ajax({
+                type: 'POST',
+                url: "service/1/add",
+                contentType:"application/json",
+                data:JSON.stringify(data),
+                success: function (data) {
+                    console.log(data)
+                    alert(data.code == 0 ? 'error' : 'success')
+                    window.location.href="bloglist.html";
+                }
+            });
+        });
+    });
+</script>
+</html>

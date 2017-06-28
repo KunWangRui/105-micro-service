@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Cloud Blog</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div th:insert="header :: nav" style="background-color: #222222; padding-bottom: 0; width: 90%"></div>
+
+<div class="row" style="align-items: center; margin-top: 14%; margin-left: 5%">
+    <div class="col-lg-8">
+        <div class="panel-group" id="accordion">
+        </div>
+    </div>
+</div>
+
+
+<div class="row" style="align-items: center; margin-left: 2%">
+    <div class="col-lg-4">
+        <a class="btn btn-info" href="add.html">添加</a>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+
+    function update(id) {
+
+        console.log(id)
+        var data = null;
+        $.get("/service/1/blog?id="+id,function (data) {
+            console.log(data)
+            window.location.href = "update.html?id=" + data.id + "&title=" + data.title
+                + "&content=" + data.content + "&author=" + data.author;
+        })
+    }
+
+    $(document).ready(function () {
+
+        $.get("/service/1/blogs", function (data, status) {
+
+            if (data != undefined && data != null) {
+                var str = '';
+
+                for (var i = 0; i < data.length; i++) {
+                    console.log(data[i]);
+
+                    str += '<div class="panel panel-success"><div class="panel-heading"><h4 class="panel-title">'
+                        + ' <a data-toggle="collapse" data-parent="#accordion" href="#collapse' + i + '">'
+                        + data[i].title
+                        + '</a><button id="upBtn'
+                        + i
+                        + '" class="btn btn-info" style="margin-left: 550px" '
+                        + 'onclick="update(' + data[i].id + ')">修改</button></h4></div><div id="collapse'
+                        + i
+                        + '" class="panel-collapse collapse"><div class="panel-body">'
+                        + data[i].content
+                        + '</div></div></div>';
+                }
+
+                $('#accordion').append(str);
+
+                for (var j = 0; j < data.length; j++) {
+                    if (j == 0) {
+                        $(function () {
+                            $('#collapse' + j).collapse('show')
+                        });
+                    } else {
+                        $(function () {
+                            $('#collapse' + j).collapse('hide')
+                        });
+                    }
+                }
+
+
+            }
+        })
+
+    });
+</script>
+
+<div th:fragment="nav">
+    <!--header-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="margin: 0; border: 0; height: 5%">
+        <div class="container">
+            <div class="navbar-header" style="width: 10%">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<a style="padding: 0.15px;margin-left: 0px; width: 50%" href="#">
+                    MicroBlog
+                </a>-->
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a style="padding: 0ch; width: 130px;height: 60px" href="#">
+                            <img src="/image/logo3.png" style="width: 100%;height: 100%">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/">首页</a>
+                    </li>
+                    <li>
+                        <a href="http://www.ictgu.cn/author">作者</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ChinaSilence/any-chat" target="_blank">Github</a>
+                    </li>
+                </ul>
+                <div class="navbar-form navbar-right">
+                    <!--<a class="btn btn-danger" th:href="@{/logout}" th:if="${#httpServletRequest.remoteUser}">退出</a>
+                    <a class="btn btn-success" th:href="@{/login}" th:unless="${#httpServletRequest.remoteUser}">登录</a>-->
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+</html>

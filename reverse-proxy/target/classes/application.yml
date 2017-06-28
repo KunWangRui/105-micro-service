@@ -1,0 +1,22 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+spring:
+  application:
+    name: gateway
+server:
+  port: 8083
+zuul:
+  routes:
+    service0: /service/0/**
+    service1: /service/1/**
+    service2: /service/2/**
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000

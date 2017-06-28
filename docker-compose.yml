@@ -1,0 +1,47 @@
+version: '2'
+services:
+  db:
+    build: ./database
+    ports:
+      - "3306:3306"
+  registry:
+    build: ./registry/target/docker
+    ports:
+      - "8080:8080"
+  config-server:
+    build: ./config-server/target/docker
+    ports:
+      - "8084:8084"
+    links:
+      - registry
+  service1:
+    build: ./service1/target/docker
+    ports:
+      - "8082:8082"
+    links:
+      - registry
+      - config-server
+    depends_on:
+      - db
+    environment:
+      - DATABASE_HOST=db
+  service2:
+    build: ./service2/target/docker
+    ports:
+      - "8085:8085"
+    links:
+      - registry
+      - config-server
+    depends_on:
+      - db
+    environment:
+      - DATABASE_HOST=db
+  gateway:
+      build: ./reverse-proxy/target/docker
+      ports:
+        - "8083:8083"
+      links:
+        - registry
+        - service1
+        - service2
+        - config-server

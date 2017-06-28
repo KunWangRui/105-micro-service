@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test
+    username: kun
+    password: 123456
+    initialize: true
+  application:
+    name: service2
+
+init-db: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/  #注册中心地址
+  instance:
+    hostname: localhost
+    instance-id: http://localhost:8085
+server:
+  port: 8085 #service0 占用8085
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 80000  # feign 超时控制
+service1:
+  ribbon:
+    ReadTimeout: 1000
+    ConnectTimeout: 500
+    MaxAutoRetries: 1  # SR6版本,这里设为1,会重试3次,重试次数还和另外的两个值有关
